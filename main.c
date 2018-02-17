@@ -79,26 +79,27 @@ int main() {
                                 "Bus number\n"
                                 "Bus route number\n"
                                 "Bus position(1-equivalent position at the park, 2- equivalent to the route)\n"
-                                "Bus driver surname and initials");
+                                "Bus driver surname and initials\n");
                 printf("1.Yep\n2.no\n") ;
+
                 char right = getch() ;
                 switch( right ) {
                     case '1' :
 
-                    /*
-                     * формируем односвязный список
-                     */
+                        /*
+                         * формируем односвязный список
+                         */
 
-                    Single_List_t *bus_list = create_Single_List();
+                         Single_List_t *bus_list = create_Single_List();
 
-                    /*
-                     * читаем из файла
-                     */
+                        /*
+                         * читаем из файла
+                         */
 
+                        ReadBusInfo_fromFile( bus_list ) ;
 
-
-                    loop = 0;
-                    break;
+                        loop = 0;
+                        break;
 
                     case '2' : break ;
                     default: break ;
