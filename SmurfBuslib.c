@@ -93,4 +93,83 @@ void ReadBusInfo_fromFile ( Single_List_t *St  )
 
         Single_List_push( St , *newBus ) ;
     }
+
+    /*
+     * закрываем файл
+     */
+
+    fclose( info ) ;
+}
+
+/*
+ * функция изменения положений автобуса с использованием односвязного списка
+ */
+
+void Change_Bus_Position_Sll ( Single_List_t *St , int data )
+{
+    /*
+     * создаем поисковый узел
+     */
+
+    Single_List_Node_t *node = St->head ;
+
+    /*
+     * ищем нужный узел
+     */
+
+    while( node && node->value.number != data )
+    {
+        node = node->adress ;
+    }
+
+    /*
+     * меняем положение на противоположное
+     */
+
+    if (node->value.position == 1 ) node->value.position = 2 ;
+    else node->value.position = 1 ;
+}
+
+/*
+ * функция вывода информации об автобусах в одной из двух позиций из односвязного списка
+ */
+
+void Print_Infirmation_Sll( Single_List_t *St , int pos )
+{
+    /*
+     * определяем какие чт выводить
+     */
+
+    if ( pos ) printf("In the park right now :\n") ;
+    else printf("On the route right now:\n") ;
+    pos ++ ;
+    /*
+     * создаем указатель на узел для вывода
+     */
+
+    Single_List_Node_t *node = St->head ;
+
+    while( node )
+    {
+        /*
+         * проверяем на совпадение pos
+         */
+
+        if( node->value.position == pos)
+        {
+
+            /*
+             * выводим значения
+             */
+
+            printf("Bus number - %d , route number - %d , " , node->value.number , node->value.Rnumber ) ;
+            puts( node->value.driver ) ;
+            printf( "\n" ) ;
+        }
+
+        /*
+         * двигаемся в следующий узел
+         */
+         node = node->adress ;
+    }
 }

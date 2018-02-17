@@ -114,14 +114,48 @@ int main()
 
         system ( "cls" ) ;
 
-        printf("1.\n0.Exit\n") ;
+        printf(        "1.Bus come back to the park\n"
+                       "2.Bus come back to the rout\n"
+                       "3.Show the information about buses on the rout\n"
+                       "4.Show the information about buses in the park"
+                       "0.Exit\n") ;
 
         char Choose = getch() ;
 
         switch ( Choose )
 
         {
+            case '1' :
 
+                system( "cls" ) ;
+
+                printf( "Add number of the backed bus_  ") ;
+
+                int index = In() ;
+
+                /*
+                 * меняем положение автобуса
+                 */
+
+                Change_Bus_Position_Sll( bus_list , index ) ;
+                break ;
+            case '2' :
+                system ( "cls" ) ;
+
+                printf( "Add number of the backed to the route bus_  ") ;
+
+                int index = In() ;
+
+                /*
+                 * меняем положение автобуса
+                 */
+
+                Change_Bus_Position_Sll( bus_list , index ) ;
+                break ;
+            case '3' :
+                break ;
+            case '4' :
+                break ;
             case '0' :
                 return  0  ;
 
