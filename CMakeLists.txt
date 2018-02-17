@@ -3,4 +3,4 @@ project(Bus_park C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Bus_park main.c)
+add_executable(Bus_park main.c SmurfBuslib.c)

@@ -1,9 +1,13 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
 #include <windef.h>
-#include "library.h"
+#include "SmurfSingleLinkedListLib.h"
+#include "Include_and_constants.h"
+#include "SmurfSingleLinkedListLib.c"
+#include "SmurfStringLib.c"
 
 
 
@@ -14,64 +18,122 @@ Bus_t * Read_Bus_info (int index  )
              * выделяем место под этот элемент
              */
 
-            Bus_t * bus = ( Bus_t * )malloc( sizeof( bus ) ) ;
+            Bus_t * bus = ( Bus_t * )malloc( sizeof( Bus_t ) ) ;
+            bus->driver = ( char * )malloc( sizeof( char ) * 20 ) ;
 
-            printf( "Add number of %d-th bus\n" , i ) ;
+            fflush( stdin ) ;
 
-            bus->bus_number = In() ;
+            printf( "Add number of %d-th bus\n" , index + 1 ) ;
 
-            printf( "where bus right now: at the park or on the way ?\n1.at the park\n2.On the way\n ") ;
-
-            bus->bus_position = (int)getchar() ;
+            bus->number = In() ;
 
             printf( "Add name of bus driver_\n") ;
 
-            scanf( "%s" , &bus->bus_driver ) ;
+            ReadString( bus->driver ) ;
 
             printf( "Add bus road number_\n" ) ;
 
-            bus->road_number = In() ;
+            bus->Rnumber = In() ;
+
+            printf( "Where bus right now: at the park or on the way ?\n1.at the park\n2.On the way\n") ;
+
+            bus->position = (int)getch() ;
 
             return bus ;
-
         }
 
 
 int main() {
 
-    /*
-     * сфорсировать список с автобусами
-     */
+    system( "cls" ) ;
 
-    printf( "To set infomation about bus park , i need amount of buses in it. Add it_ " ) ;
+    int loop = 1 ;
 
-    int amount_of_buses = In() ;
+    printf("1.Fill with a keyboard\n2.Fill from the file\n0.Exit\n") ;
 
-    /*
-     * формируем односвязный список
-     */
-
-    Single_List_t *bus_list = create_Single_List () ;
-
-    /*
-     * в цикле заполняем список с информацие об автобусах
-     */
-
-    for ( int i = 0 ; i < amount_of_buses ; i ++ )
+    while ( loop )
     {
-        /*
-         * очишаем экран
-         */
 
-        system( "cls" ) ;
+        char Choose = getch();
+        switch (Choose)
+        {
+            case '1' :
 
-        /*
-         * добовляем новые узлы с автобусами в наш список
-         */
+            /*
+             * узнаем количество автобусов список с автобусами
+             */
 
-        Single_List_push( bus_list , Read_Bus_info( i ) ) ;
+            printf("To set infomation about bus park , i need amount of buses in it. Add it_ ");
+
+            int amount_of_buses = In();
+
+            /*
+             * формируем односвязный список
+             */
+
+            Single_List_t *bus_list = create_Single_List();
+
+            /*
+             * в цикле заполняем список с информацие об автобусах
+             */
+
+            for (int i = 0; i < amount_of_buses; i++)
+            {
+                /*
+                 * очишаем экран
+                 */
+
+                system("cls");
+
+                /*
+                 * добовляем новые узлы с автобусами в наш список
+                 */
+
+                Bus_t *newbus;
+                newbus = Read_Bus_info(i);
+
+                Single_List_push(bus_list, *newbus);
+            }
+                loop = 0 ;
+                break ;
+
+            case '2' :
+
+            /*
+             * формируем односвязный список
+             */
+
+                Single_List_t *bus_list = create_Single_List();
+
+                /*
+                 * в цикле заполняем список с информацие об автобусах
+                 */
+
+                for (int i = 0; i < amount_of_buses; i++)
+                {
+                    /*
+                     * очишаем экран
+                     */
+
+                    system("cls");
+
+                    /*
+                     * добовляем новые узлы с автобусами в наш список
+                     */
+
+                    Bus_t *newbus;
+                    newbus = Read_Bus_info(i);
+
+                    Single_List_push(bus_list, *newbus);
+                }
+
+                loop = 0 ;
+                break ;
+            case '0' :
+                return 0 ;
+            default: break;
+        }
     }
-
     /*
      * меню
      */
@@ -81,7 +143,7 @@ int main() {
 
         system ( "cls" ) ;
 
-        printf("\n") ;
+        printf("1.\n0.Exit\n") ;
 
         char Choose = getch() ;
 

@@ -7,10 +7,10 @@
 
 typedef  struct _Bus
 {
-    int bus_number ;
-    char bus_driver[32] ;
-    int bus_position ;
-    int road_number ;
+    int number ;
+    char *driver ;
+    int position ;
+    int Rnumber ;
 } Bus_t ;
 
 /*
@@ -20,7 +20,7 @@ typedef  struct _Bus
 
 typedef struct _Single_List_Node
 {
-    Bus_t value = 0 ;
+    Bus_t value ;
     struct _Single_List_Node *adress ;
 } Single_List_Node_t ;
 
