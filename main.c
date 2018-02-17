@@ -8,39 +8,11 @@
 #include "Include_and_constants.h"
 #include "SmurfSingleLinkedListLib.c"
 #include "SmurfStringLib.c"
+#include "SmurfBuslib.c"
 
 
 
-Bus_t * Read_Bus_info (int index  )
-        {
-            /*
-             * создаем возвращаемый указатель
-             * выделяем место под этот элемент
-             */
 
-            Bus_t * bus = ( Bus_t * )malloc( sizeof( Bus_t ) ) ;
-            bus->driver = ( char * )malloc( sizeof( char ) * 20 ) ;
-
-            fflush( stdin ) ;
-
-            printf( "Add number of %d-th bus\n" , index + 1 ) ;
-
-            bus->number = In() ;
-
-            printf( "Add name of bus driver_\n") ;
-
-            ReadString( bus->driver ) ;
-
-            printf( "Add bus road number_\n" ) ;
-
-            bus->Rnumber = In() ;
-
-            printf( "Where bus right now: at the park or on the way ?\n1.at the park\n2.On the way\n") ;
-
-            bus->position = (int)getch() ;
-
-            return bus ;
-        }
 
 
 int main() {
@@ -99,35 +71,38 @@ int main() {
 
             case '2' :
 
-            /*
-             * формируем односвязный список
-             */
-
-                Single_List_t *bus_list = create_Single_List();
-
                 /*
-                 * в цикле заполняем список с информацие об автобусах
+                 * предупреждаем о необходимости соответствия файла шаблону
                  */
 
-                for (int i = 0; i < amount_of_buses; i++)
-                {
+                printf( "Are your file correspond to this template:\n"
+                                "Bus number\n"
+                                "Bus route number\n"
+                                "Bus position(1-equivalent position at the park, 2- equivalent to the route)\n"
+                                "Bus driver surname and initials");
+                printf("1.Yep\n2.no\n") ;
+                char right = getch() ;
+                switch( right ) {
+                    case '1' :
+
                     /*
-                     * очишаем экран
+                     * формируем односвязный список
                      */
 
-                    system("cls");
+                    Single_List_t *bus_list = create_Single_List();
 
                     /*
-                     * добовляем новые узлы с автобусами в наш список
+                     * читаем из файла
                      */
 
-                    Bus_t *newbus;
-                    newbus = Read_Bus_info(i);
 
-                    Single_List_push(bus_list, *newbus);
+
+                    loop = 0;
+                    break;
+
+                    case '2' : break ;
+                    default: break ;
                 }
-
-                loop = 0 ;
                 break ;
             case '0' :
                 return 0 ;
