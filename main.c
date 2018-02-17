@@ -15,7 +15,14 @@
 
 
 
-int main() {
+int main()
+{
+
+    /*
+                         * формируем односвязный список
+                         */
+
+    Single_List_t *bus_list = create_Single_List();
 
     system( "cls" ) ;
 
@@ -38,12 +45,6 @@ int main() {
             printf("To set infomation about bus park , i need amount of buses in it. Add it_ ");
 
             int amount_of_buses = In();
-
-            /*
-             * формируем односвязный список
-             */
-
-            Single_List_t *bus_list = create_Single_List();
 
             /*
              * в цикле заполняем список с информацие об автобусах
@@ -85,12 +86,6 @@ int main() {
                 char right = getch() ;
                 switch( right ) {
                     case '1' :
-
-                        /*
-                         * формируем односвязный список
-                         */
-
-                         Single_List_t *bus_list = create_Single_List();
 
                         /*
                          * читаем из файла

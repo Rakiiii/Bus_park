@@ -29,8 +29,8 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+            <state relative-caret-position="40">
+              <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
               <folding>
                 <element signature="e#1#19#0" expanded="true" />
               </folding>
@@ -206,7 +206,7 @@
       <workItem from="1518789111824" duration="8576000" />
       <workItem from="1518809192583" duration="598000" />
       <workItem from="1518816387929" duration="901000" />
-      <workItem from="1518859508596" duration="7322000" />
+      <workItem from="1518859508596" duration="7481000" />
     </task>
     <task id="LOCAL-00001" summary="refactored project for better understanding of the code">
       <created>1518729051467</created>
@@ -229,11 +229,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518867653456</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add warning menu">
+      <created>1518867943139</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1518867943139</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24451000" />
+    <option name="totallyTimeSpent" value="24610000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="-10" width="1940" height="1043" extended-state="6" />
@@ -269,7 +276,8 @@
     <MESSAGE value="refactored project for better understanding of the code" />
     <MESSAGE value="move from std functions ro Smurf's functions&#10;rename libs&#10;upgrate smurf's io functions&#10;add prev menu" />
     <MESSAGE value="add smurf bus lib&#10;fully working read from keyboard&#10;+add base for from file read" />
-    <option name="LAST_COMMIT_MESSAGE" value="add smurf bus lib&#10;fully working read from keyboard&#10;+add base for from file read" />
+    <MESSAGE value="add warning menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="add warning menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -583,8 +591,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
+        <state relative-caret-position="40">
+          <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
           <folding>
             <element signature="e#1#19#0" expanded="true" />
           </folding>
