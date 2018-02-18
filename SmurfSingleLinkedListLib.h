@@ -20,7 +20,7 @@
 /*
  * структура описываюшая информацию об автобусах
  */
-
+#pragma pack( push , 1)
 typedef  struct _Bus
 {
     int number ;
@@ -28,18 +28,19 @@ typedef  struct _Bus
     int position ;
     int Rnumber ;
 } Bus_t ;
+#pragma pack( pop ) ;
 
 /*
  * Структура элементов односвязного спписка
  * обЪявляем новый тип , что б не писсать структуру каждый раз
  */
-
+#pragma pack( push , 1 ) ;
 typedef struct _Single_List_Node
 {
     Bus_t value ;
     struct _Single_List_Node *adress ;
 } Single_List_Node_t ;
-
+#pragma pack( pop )
 
 /*
  * Создаем  структуру односвзяного списка
@@ -48,6 +49,7 @@ typedef struct _Single_List_Node
  * указатель на конец
  */
 
+#pragma pack( push , 1 )
 typedef struct _Single_List
 {
     /*
@@ -69,6 +71,7 @@ typedef struct _Single_List
     Single_List_Node_t *tail ;
 
 } Single_List_t ;
+#pragma pack( pop s)
 
 Single_List_t * create_Single_List ( void ) ;
 

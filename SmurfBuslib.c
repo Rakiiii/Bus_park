@@ -63,7 +63,7 @@ void ReadBusInfo_fromFile ( Single_List_t *St  )
      */
 
     FILE *info ;
-    info = fopen( "c:/BusInfo" , "r" ) ;
+    info = fopen( "BusInfo.txt" , "rt" ) ;
 
     /*
      * выделяем меcто под считываемую информацию
@@ -88,7 +88,7 @@ void ReadBusInfo_fromFile ( Single_List_t *St  )
          * читаем фамилию и инициалы водителя
          */
 
-        fscanf( info , "%d\n%d\n%d\n" , newBus->number , newBus->Rnumber , newBus->position ) ;
+        fscanf( info , "%d\n%d\n%d\n" , &newBus->number , &newBus->Rnumber , &newBus->position ) ;
         fgets( newBus->driver , 32 , info );
 
         /*

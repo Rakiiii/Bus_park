@@ -57,6 +57,11 @@ int main()
                 break ;
 
             case '2' :
+                /*
+                 * чистим консоль
+                 */
+
+                system( "cls" ) ;
 
                 /*
                  * предупреждаем о необходимости соответствия файла шаблону
@@ -68,8 +73,10 @@ int main()
                                 "Bus position(1-equivalent position at the park, 2- equivalent to the route)\n"
                                 "Bus driver surname and initials\n");
                 printf("1.Yep\n2.no\n") ;
+                fflush( stdin ) ;
 
                 char right = getch() ;
+                fflush( stdin ) ;
                 switch( right ) {
                     case '1' :
 
