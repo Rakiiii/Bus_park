@@ -1,26 +1,12 @@
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <windows.h>
-#include <windef.h>
-#include "SmurfSingleLinkedListLib.h"
-#include "Include_and_constants.h"
-#include "SmurfSingleLinkedListLib.c"
-#include "SmurfStringLib.c"
-#include "SmurfBuslib.c"
-
-
-
-
+#include "SmurfBuslib.h"
 
 
 int main()
 {
 
     /*
-                         * формируем односвязный список
-                         */
+     * формируем односвязный список
+     */
 
     Single_List_t *bus_list = create_Single_List();
 
@@ -117,7 +103,8 @@ int main()
         printf(        "1.Bus come back to the park\n"
                        "2.Bus come back to the rout\n"
                        "3.Show the information about buses on the rout\n"
-                       "4.Show the information about buses in the park"
+                       "4.Show the information about buses in the park\n"
+                       "5.Add new bus\n"
                        "0.Exit\n") ;
 
         char Choose = getch() ;
@@ -144,17 +131,45 @@ int main()
 
                 printf( "Add number of the backed to the route bus_  ") ;
 
-                int index = In() ;
+                int indeX= In() ;
 
                 /*
                  * меняем положение автобуса
                  */
 
-                Change_Bus_Position_Sll( bus_list , index ) ;
+                Change_Bus_Position_Sll( bus_list , indeX ) ;
                 break ;
             case '3' :
+
+                Print_Information_Sll( bus_list , 1 ) ;
+
+                printf("Press any button to continue_ ") ;
+                getch() ;
                 break ;
             case '4' :
+
+                Print_Information_Sll( bus_list , 0 ) ;
+
+                printf("Press any button to continue_ ") ;
+                getch() ;
+                break ;
+            case '5' :
+
+                /*
+              * очишаем экран
+              */
+
+                system("cls");
+
+                /*
+                 * добовляем новые узлы с автобусами в наш список
+                 */
+
+                Bus_t *newbus;
+                newbus = Read_Bus_info(0);
+
+                Single_List_push(bus_list, *newbus);
+
                 break ;
             case '0' :
                 return  0  ;

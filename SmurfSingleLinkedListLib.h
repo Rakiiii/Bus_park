@@ -1,5 +1,21 @@
-#ifndef SINGLELINKEDLISTLIB_LIBRARY_H
-#define SINGLELINKEDLISTLIB_LIBRARY_H
+//
+// Created by sudar on 2/18/2018.
+//
+
+#ifndef BUS_PARK_SMURFSINGLELINKEDLISTLIB_H
+#define BUS_PARK_SMURFSINGLELINKEDLISTLIB_H
+
+
+#pragma once
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <windows.h>
+#include <windef.h>
+
+
 
 /*
  * структура описываюшая информацию об автобусах
@@ -54,7 +70,7 @@ typedef struct _Single_List
 
 } Single_List_t ;
 
-Single_List_t * create_Single_List ( void );
+Single_List_t * create_Single_List ( void ) ;
 
 void Single_List_push( Single_List_t *St , Bus_t data );
 
@@ -70,4 +86,6 @@ void Single_List_push_nth ( Single_List_t *St , int position , Bus_t data );
 
 Bus_t * Single_List_pop_nth ( Single_List_t *St , int position );
 
-#endif
+
+
+#endif //BUS_PARK_SMURFSINGLELINKEDLISTLIB_H

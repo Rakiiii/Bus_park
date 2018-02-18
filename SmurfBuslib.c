@@ -1,12 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <windows.h>
-#include <windef.h>
-#include "SmurfSingleLinkedListLib.h"
-#include "Include_and_constants.h"
-#include "SmurfSingleLinkedListLib.c"
-#include "SmurfStringLib.c"
+//
+// Created by sudar on 2/18/2018.
+//
+
+#include "SmurfBuslib.h"
+
 
 
 Bus_t * Read_Bus_info (int index  )
@@ -34,8 +31,23 @@ Bus_t * Read_Bus_info (int index  )
     bus->Rnumber = In() ;
 
     printf( "Where bus right now: at the park or on the way ?\n1.at the park\n2.On the way\n") ;
+    /*
+     * создаем переменную для выбора
+     */
 
-    bus->position = (int)getch() ;
+    char Switch = getch() ;
+    switch ( Switch )
+    {
+        case '1' :
+            bus->position = 2 ;
+            break ;
+        case '2' :
+            bus->position = 1 ;
+            break ;
+
+        default:
+            break ;
+    }
 
     return bus ;
 }
@@ -44,22 +56,14 @@ Bus_t * Read_Bus_info (int index  )
 void ReadBusInfo_fromFile ( Single_List_t *St  )
 {
 
-    /*
-     * узнать адрес нахождения файла
-     */
-
-    char *string = ( char * )malloc( sizeof( char ) * 1024 ) ;
-
-    printf("Add way to your file\n") ;
-
-    ReadString( string ) ;
+    printf("Your file should be at the root of disk c and named BusInfo.txt\n") ;
 
     /*
      * открыть файл в режиме чтения
      */
 
     FILE *info ;
-    info = fopen( *string , "r" ) ;
+    info = fopen( "c:/BusInfo" , "r" ) ;
 
     /*
      * выделяем меcто под считываемую информацию
@@ -134,10 +138,18 @@ void Change_Bus_Position_Sll ( Single_List_t *St , int data )
  * функция вывода информации об автобусах в одной из двух позиций из односвязного списка
  */
 
-void Print_Infirmation_Sll( Single_List_t *St , int pos )
+void Print_Information_Sll( Single_List_t *St , int pos )
 {
     /*
-     * определяем какие чт выводить
+     * очищаем консоль
+     */
+
+    system( "cls" ) ;
+
+    /*
+     * определяем какие узлы  выводить
+     * если pos 1 то в парке
+     * если pos 0 то на маршруте
      */
 
     if ( pos ) printf("In the park right now :\n") ;
@@ -147,7 +159,9 @@ void Print_Infirmation_Sll( Single_List_t *St , int pos )
      * создаем указатель на узел для вывода
      */
 
-    Single_List_Node_t *node = St->head ;
+    Single_List_Node_t *node ;
+
+    node = St->head ;
 
     while( node )
     {
@@ -170,6 +184,7 @@ void Print_Infirmation_Sll( Single_List_t *St , int pos )
         /*
          * двигаемся в следующий узел
          */
-         node = node->adress ;
+        node = node->adress ;
     }
 }
+

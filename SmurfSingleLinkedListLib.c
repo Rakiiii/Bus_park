@@ -1,10 +1,8 @@
-#include "SmurfSingleLinkedListLib.h"
+//
+// Created by sudar on 2/18/2018.
+//
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-#include <conio.h>
-#include <windef.h>
+#include "SmurfSingleLinkedListLib.h"
 
 /*
  * St - будет обозначать массив
@@ -169,7 +167,7 @@ void Single_List_push_back ( Single_List_t *St , Bus_t data )
 Single_List_Node_t * Single_List_get_prevlast ( Single_List_t *St )
 {
     Single_List_Node_t *node ;
-     node = St->head ;
+    node = St->head ;
 
     if ( node->adress == NULL ) return NULL ;
 
@@ -199,10 +197,10 @@ Bus_t * Single_List_pop_back ( Single_List_t *St )
     Bus_t *value = ( Bus_t * )malloc( sizeof( Bus_t ) ) ;
     *value = node->value ;
 
-      /*
-     *получаем предпоследний элемент
-     * делаем его последним
-     */
+    /*
+   *получаем предпоследний элемент
+   * делаем его последним
+   */
 
     Single_List_Node_t *prevlast ;
     prevlast = Single_List_get_prevlast( St ) ;
@@ -315,7 +313,7 @@ Bus_t * Single_List_pop_nth ( Single_List_t *St , int position )
      * проверяем не является ли удаляемый узел последним
      */
 
-     if ( node->adress->adress == NULL ) St->tail = node ;
+    if ( node->adress->adress == NULL ) St->tail = node ;
 
     /*
      * двигаемся на удаляемы узел
@@ -333,3 +331,4 @@ Bus_t * Single_List_pop_nth ( Single_List_t *St , int position )
     free( node ) ;
     return value ;
 }
+
