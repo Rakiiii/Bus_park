@@ -56,14 +56,14 @@ Bus_t * Read_Bus_info (int index  )
 void ReadBusInfo_fromFile ( Single_List_t *St  )
 {
 
-    printf("Your file should be at the root of disk c and named BusInfo.txt\n") ;
+    printf("Your file should be at the same directory as .exe file and named BusInfo.txt\n") ;
 
     /*
      * открыть файл в режиме чтения
      */
 
     FILE *info ;
-    info = fopen( "BusInfo.txt" , "rt" ) ;
+    info = fopen( "BusInfo.txt" , "r" ) ;
 
     /*
      * выделяем меcто под считываемую информацию
@@ -77,10 +77,18 @@ void ReadBusInfo_fromFile ( Single_List_t *St  )
      */
 
     int amount = 0 ;
-    fscanf( info , "%d" , amount ) ;
+    fscanf( info , "%d" , &amount ) ;
 
     for (int i = 0 ; i < amount ; i ++ )
     {
+
+        /*
+         * выделяем меcто под считываемую информацию
+         */
+
+        Bus_t *newBus = ( Bus_t * )malloc( sizeof( Bus_t ) ) ;
+        newBus->driver = ( char * )malloc( sizeof( char ) * 33 ) ;
+
         /*
          * читаем сначала номер автобуса
          * затем номер маршрута
